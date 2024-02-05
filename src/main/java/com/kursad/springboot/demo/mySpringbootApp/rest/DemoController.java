@@ -10,8 +10,22 @@ import com.kursad.springboot.demo.mySpringbootApp.common.Coach;
 public class DemoController {
 	private Coach myCoach;
 
+	/*
+	 * RECOMMENDED by the spring.io development team
+	 * • Constructor Injection: required dependencies
+	 * • Setter Injection: optional dependencies
+	 * NOT RECOMMENDED by the spring.io development team
+	 * • Field Injection -> In general, it makes the code harder to unit test
+	 */
+
+	// @Autowired
+	// public DemoController(Coach theCoach) {
+	// myCoach = theCoach;
+	// }
+
 	@Autowired
-	public DemoController(Coach theCoach) {
+	// public void doSomething(Coach theCoach) { // method name can be anything
+	public void setCoach(Coach theCoach) {
 		myCoach = theCoach;
 	}
 
