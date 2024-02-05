@@ -29,6 +29,10 @@ public class DemoController {
 		myCoach = theCoach;
 	}
 
+	// Field injection example
+	// @Autowired
+	// private Coach myCoach;
+
 	@GetMapping("/dailyworkout")
 	public String getDailyWorkout() {
 		return myCoach.getDailyWorkout();
