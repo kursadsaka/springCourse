@@ -1,4 +1,4 @@
-package com.kursad.springboot.demo.mySpringbootApp.common;
+package com.kursad.util;
 
 import org.springframework.stereotype.Component;
 
