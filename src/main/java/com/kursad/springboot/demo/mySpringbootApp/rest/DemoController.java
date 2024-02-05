@@ -18,16 +18,16 @@ public class DemoController {
 	 * • Field Injection -> In general, it makes the code harder to unit test
 	 */
 
-	// @Autowired
-	// public DemoController(Coach theCoach) {
-	// myCoach = theCoach;
-	// }
-
 	@Autowired
-	// public void doSomething(Coach theCoach) { // method name can be anything
-	public void setCoach(Coach theCoach) {
+	public DemoController(Coach theCoach) {
 		myCoach = theCoach;
 	}
+
+	// @Autowired
+	// // public void doSomething(Coach theCoach) { // method name can be anything
+	// public void setCoach(Coach theCoach) {
+	// myCoach = theCoach;
+	// }
 
 	// Field injection example
 	// @Autowired
