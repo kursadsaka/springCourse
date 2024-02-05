@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.kursad.util.Coach;
+import com.kursad.springboot.demo.mySpringbootApp.common.Coach;
 
 @RestController
 public class DemoController {
