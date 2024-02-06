@@ -1,10 +1,8 @@
 package com.kursad.springboot.demo.mySpringbootApp.common;
 
-import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Component;
 
 @Component
-@Primary
 public class BaseballCoach implements Coach {
 
 	@Override
