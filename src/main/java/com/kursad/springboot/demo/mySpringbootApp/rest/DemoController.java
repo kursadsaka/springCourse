@@ -10,7 +10,6 @@ import com.kursad.springboot.demo.mySpringbootApp.common.Coach;
 @RestController
 public class DemoController {
 	private Coach myCoach;
-	private Coach anotherCoach;
 
 	/*
 	 * RECOMMENDED by the spring.io development team
@@ -22,11 +21,9 @@ public class DemoController {
 
 	@Autowired
 	public DemoController(
-			@Qualifier("cricketCoach") Coach theCoach,
-			@Qualifier("cricketCoach") Coach theAnotherCoach) {
+			@Qualifier("cricketCoach") Coach theCoach) {
 		System.out.println("In constructor: " + getClass().getSimpleName());
 		myCoach = theCoach;
-		anotherCoach = theAnotherCoach;
 	}
 
 	// @Autowired
@@ -42,10 +39,5 @@ public class DemoController {
 	@GetMapping("/dailyworkout")
 	public String getDailyWorkout() {
 		return myCoach.getDailyWorkout();
-	}
-
-	@GetMapping("/check")
-	public String check() {
-		return "Comparing beans: myCoach == anotherCoach, " + (myCoach == anotherCoach);
 	}
 }
