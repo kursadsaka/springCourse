@@ -9,7 +9,7 @@ import com.kursad.springboot.demo.mySpringbootApp.common.SwimCoach;
 @Configuration
 public class SportConfig {
 
-	@Bean
+	@Bean("aquatic")
 	public Coach swimCoach() {
 		return new SwimCoach();
 	}
