@@ -48,10 +48,9 @@ public class CruddemoApplication {
 		int theId = temStudent.getId();
 		System.out.println("Saved student. Generated id: " + theId);
 
-		// retrieve student based on the id: primary key
 		System.out.println("Retrieving student with id: " + theId);
 		Student myStudent = studentDAO.findById(theId);
-		// display student
+
 		System.out.println("Found the student: " + myStudent);
 	}
 
