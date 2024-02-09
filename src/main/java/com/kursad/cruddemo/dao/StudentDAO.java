@@ -10,6 +10,6 @@ public interface StudentDAO {
 
 	Student findById(Integer id);
 
-	List<Student> FindAll();
+	List<Student> findAll();
 
 }
