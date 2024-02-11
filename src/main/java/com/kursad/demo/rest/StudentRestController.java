@@ -9,18 +9,25 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.kursad.demo.entity.Student;
 
+import jakarta.annotation.PostConstruct;
+
 @RestController
 @RequestMapping("/api")
 public class StudentRestController {
 
-	@GetMapping("/students")
-	public List<Student> getStudents() {
-		List<Student> theStudents = new ArrayList<>();
+	private List<Student> theStudents;
+
+	@PostConstruct
+	public void loadData() {
+		theStudents = new ArrayList<>();
 
 		theStudents.add(new Student("Q", "S"));
 		theStudents.add(new Student("Tim", "Sah"));
 		theStudents.add(new Student("Anka", "Ra"));
+	}
 
+	@GetMapping("/students")
+	public List<Student> getStudents() {
 		return theStudents;
 	}
 
