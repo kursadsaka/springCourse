@@ -41,6 +41,18 @@ public class StudentRestController {
 		return new ResponseEntity<>(error, HttpStatus.NOT_FOUND);
 	}
 
+	@ExceptionHandler
+	public ResponseEntity<StudentErrorResponse> handleException(Exception exc) {
+		StudentErrorResponse error = new StudentErrorResponse();
+		HttpStatus status = HttpStatus.BAD_REQUEST;
+
+		error.setStatus(status.value());
+		error.setMessage(exc.getMessage());
+		error.setTimeStamp(System.currentTimeMillis());
+
+		return new ResponseEntity<>(error, status);
+	}
+
 	@GetMapping("/students")
 	public List<Student> getStudents() {
 		return theStudents;
