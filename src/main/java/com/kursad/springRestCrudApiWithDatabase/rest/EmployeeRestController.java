@@ -3,6 +3,7 @@ package com.kursad.springRestCrudApiWithDatabase.rest;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -48,6 +49,17 @@ public class EmployeeRestController {
 	@PutMapping("/employees")
 	public Employee updateEmployee(@RequestBody Employee theEmployee) {
 		return employeeService.save(theEmployee);
+	}
+
+	@DeleteMapping("/employees/{employeeId}")
+	public String deleteById(@PathVariable int employeeId) {
+		Employee foundEmployee = employeeService.findById(employeeId);
+		if (foundEmployee == null) {
+			throw new RuntimeException("Employee id not found - " + employeeId);
+		}
+
+		employeeService.deleteById(employeeId);
+		return "Deleted employee id - " + employeeId;
 	}
 
 }
