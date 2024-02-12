@@ -42,7 +42,6 @@ public class EmployeeRestController {
 
 	@PostMapping("/employees")
 	public Employee addEmployee(@RequestBody Employee theEmployee) {
-		theEmployee.setId(0); // also just in case they pass an id in JSON, set id to 0
 		return employeeService.save(theEmployee);
 	}
 
