@@ -4,6 +4,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import jakarta.servlet.http.HttpServletRequest;
 
@@ -27,6 +28,14 @@ public class HelloWorldController {
 
 		String message = "Yo! " + name;
 
+		model.addAttribute("message", message);
+
+		return "helloworld";
+	}
+
+	@RequestMapping("/processFormV3")
+	public String processFormV3(@RequestParam("studentName") String name, Model model) {
+		String message = "Yo3! " + name.toUpperCase();
 		model.addAttribute("message", message);
 
 		return "helloworld";
